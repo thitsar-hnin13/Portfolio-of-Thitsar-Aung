@@ -78,7 +78,7 @@ and building real-world projects while continuously improving my skills.
             </div>
             <div className=" mt-6 flex flex-col sm:flex-row  gap-3 sm:gap-4 justify-center md:justify-start text-lg font-medium">
               <a href="#projects" className='inline-flex items-center justify-center rounded-lg bg-blue-300 text-black font-semibold px-5 py-3 hover:bg-red-300 transition'>View Projects</a>
-              <a href="#contact" className='inline-flex items-center justify-center rounded-lg border  border-white/20 text-blue-500 bg-white/10 font-semibold px-5 py-3 hover:bg-white/20 transition'>Get in Touch </a>
+              <a href="https://thitsarprotfolio.vercel.app/" className='inline-flex items-center justify-center rounded-lg border  border-white/20 text-blue-500 bg-white/10 font-semibold px-5 py-3 hover:bg-white/20 transition'>View Portfolio </a>
             </div>
 
           </div>
