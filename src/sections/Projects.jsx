@@ -1,0 +1,159 @@
+import React, { useEffect, useMemo, useRef, useState } from 'react'
+import a1 from '../assets/a1.jpg'
+import b1 from '../assets/b1.jpg'
+import c1 from '../assets/c1.jpg'
+import a2 from '../assets/a2.png'
+import b2 from '../assets/b2.png'
+import c2 from '../assets/c2.png'
+import { AnimatePresence, useMotionValueEvent, useScroll, motion } from 'framer-motion'
+
+
+const useIsMobile = (query = "(max-width: 639px)") => {
+  const [isMobile, setIsMobile] = useState(
+    typeof window !== "undefined" && window.matchMedia(query).matches
+  )
+  useEffect(() => {
+    if (typeof window === "undefined") return;
+    const mql = window.matchMedia(query);
+    const handler = (e) => setIsMobile(e.matches);
+    mql.addEventListener("change", handler);
+    setIsMobile(mql.matches);
+    return () => mql.removeEventListener("change", handler);
+  }, [query]);
+  return isMobile;
+}
+
+const Projects = () => {
+  const isMobile = useIsMobile();
+  const sceneRef = useRef(null);
+
+
+  const projects = useMemo(() => [
+    {
+      title: "SHWEDAGON PAGODA",
+      link: "https://thitsaraung-sniph.vercel.app/",
+      bg: "#001219",
+      image: isMobile ? a2 : a1,
+    },
+
+    {
+      title: "  CHRISTMASMY  ",
+      link: "https://christmasmy.vercel.app/",
+      bg: " #1d1a11",
+      image: isMobile ? c2 : c1,
+    },
+  ], [isMobile]);
+
+  const { scrollYProgress } = useScroll(
+    {
+      target: sceneRef,
+      offset: ["start start", "end end"]
+    }
+  )
+  const threshold = projects.map((_, i) => (i + 1) / projects.length);
+
+  const [activeIndex, setActiveIndex] = useState(0);
+
+
+  useMotionValueEvent(scrollYProgress, "change", (v) => {
+    const idx = threshold.findIndex((t) => v <= t);
+    setActiveIndex(idx === -1 ? threshold.length - 1 : idx)
+  });
+  const activeProject = projects[activeIndex];
+
+
+
+  return (
+    <div
+      ref={sceneRef}
+      id='projects'
+      className="relative text-red-500  " style={{
+        height: `${100 * projects.length}vh`,
+        backgroundColor: activeProject.bg,
+        transition: "background-color 400ms ease"
+      }}>
+
+      <div className="sticky top-0 h-screen flex flex-col items-center justify-center ">
+
+        <h2 className={`text-3xl font-semibold z-10 text-center ${isMobile ? "mt-4 " : "mt-8"
+          }`}>
+          MY PROJECT
+        </h2>
+        <div className={`relative w-full flex-1 flex items-center justify-center ${isMobile ? "-mt-4 " : ""}`}>
+          {projects.map((project, idx) => (
+            <div
+              className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 transition-all duration-500 ${activeIndex === idx ? "opacity-100  z-20" : "opacity-0 z-0 sm:z-10"}`}
+              key={project.title}
+              style={{ width: "85%", maxWidth: "1200px" }}
+            >
+              <AnimatePresence mode='wait'>
+                {activeIndex === idx && (
+                  <motion.h3 key={project.title}
+                    initial={{ opacity: 0, y: -30 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: 30 }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className={`block text-center text-[clamp(2rem,6vw ,5rem)]  text-blue-500/95  sm:absolute sm:-top-20 sm:left-[35%] lg:left-[5%] sm:mb-0 italic font-semibold  ${isMobile ? "-mt-24 " : ""} `}
+                    style={{
+                      zIndex: 5,
+                      textAlign: isMobile ? "center" : "left",
+                    }}
+                  >
+                    {project.title}
+                  </motion.h3>
+                )}
+
+              </AnimatePresence>
+              <div className={`relative w-full overflow-hidden bg-black/20 
+                        shadow-2xl md:shadow-[0_35px_60px_-15px_rgba(0,0,0,0.7)]
+                      ${isMobile ? "mb-6 rounded-lg" : "mb-10 sm:mb-12 rounded-xl"}
+                          h-[62vh] sm:h-[66vh]`}
+                style={{ zIndex: 10, transition: "box-shadow 250ms ease" }}
+              >
+                <img src={project.image} alt={project.title}
+                  className='w-full h-full object-contain drop-shadow-xl md:drop-shadow-2xl'
+                  style={{
+                    position: "relative",
+                    zIndex: 10,
+                    filter: "drop-shadow(0 , 16px 40px rgba(0,0,0,0.65)",
+                    transition: "filter 200ms ease"
+
+                  }}
+                  loading='lazy'
+                />
+                <div className="pointer-events-none absolute inset-0 "
+                style={{
+                  zIndex:11,
+                  background:"liner-gradient(100deg,rgba(0,0,0,0.12) 0% ,rgba(0,0,0,0) 40% )"
+                }}
+                >
+
+                </div>
+
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className={` absolute ${ isMobile ? "bottom-20" :"bottom-10"} `}>
+          <a href={activeProject?.link}
+          target='_blank'
+          rel='noopener noreferrer '
+          className='inline-block px-6 py-3 font-semibold rounded-lg bg-blue-300 text-red-500 hover:bg-blue-600 transition-all '
+          aria-label={`View ${activeProject?.title}`}
+          >
+            
+            View Project
+            
+          </a>
+
+        </div>
+      </div>
+
+    </div>
+  )
+}
+
+
+export default Projects
+
