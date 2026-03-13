@@ -5,6 +5,13 @@ import c1 from '../assets/c1.jpg'
 import a2 from '../assets/a2.png'
 import b2 from '../assets/b2.png'
 import c2 from '../assets/c2.png'
+import o from '../assets/o.png'
+import o1 from '../assets/o1.png'
+import o2 from '../assets/o2.png'
+import o3 from '../assets/o3.png'
+import o4 from '../assets/o4.png'
+import o5 from '../assets/o5.png'
+
 import { AnimatePresence, useMotionValueEvent, useScroll, motion } from 'framer-motion'
 
 
@@ -42,6 +49,24 @@ const Projects = () => {
       bg: " #1d1a11",
       image: isMobile ? c2 : c1,
     },
+    {
+      title: "  SHEW13HSOLUTION COMPANY  ",
+      link: "https://shew13hvalue.vercel.app/",
+      bg: " #1d1a11",
+      image: isMobile ? o : o1,
+    },
+    {
+      title: "  SOLAR SYSTEM EXPLORATION  ",
+      link: "https://solar-system-exploration-three.vercel.app/",
+      bg: " #1d1a11",
+      image: isMobile ? o2 : o3,
+    },
+    {
+      title: "  UNIQUE SOLUTION COMPANY  ",
+      link: "https://developer-teams-frontend.vercel.app/",
+      bg: " #1d1a11",
+      image: isMobile ? o4 : o5,
+    },
   ], [isMobile]);
 
   const { scrollYProgress } = useScroll(
@@ -60,9 +85,6 @@ const Projects = () => {
     setActiveIndex(idx === -1 ? threshold.length - 1 : idx)
   });
   const activeProject = projects[activeIndex];
-
-
-
   return (
     <div
       ref={sceneRef}

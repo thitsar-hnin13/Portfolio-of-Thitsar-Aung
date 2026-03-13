@@ -1,32 +1,32 @@
 import React from 'react'
-import m1 from '../assets/m1.jpg'
-import m2 from '../assets/m2.jpg'
-import m3 from '../assets/m3.jpg'
-import m4 from '../assets/m4.jpg'
+import m1 from '../assets/l3.jpg'
+import m2 from '../assets/l2.jpg'
+import m3 from '../assets/l.jpg'
+import m4 from '../assets/l1.jpg'
 import {motion} from 'framer-motion'
 
 const testimonials = [
   {
-    name: "Moe Ka",
-    role: "Software Engineer at HCL Technologies",
+    name: "Moe Kaung",
+    role: "Full Stack Developer at Unique Solution",
     review: "Working with this team was a fantastic experience. The project management and technical guidance helped me grow professionally.",
     image: m1,
   },
   {
-    name: "Yash Saha",
-    role: "Full Stack Developer at HCL Technologies",
+    name: "Min Wai Tun",
+    role: "Frontend Developer at Unique Solution",
     review: "I truly appreciate the supportive work environment. Collaboration here leads to innovative solutions every day.",
     image: m2,
   },
   {
-    name: "Yash Saha 2",
-    role: "Frontend Developer at HCL Technologies",
+    name: "Nay Lin Soe",
+    role: "Backend Developer at Unique Solution",
     review: "The mentorship and learning opportunities were amazing. I could tackle complex projects confidently.",
     image: m3,
   },
   {
-    name: "Yash Saha 1",
-    role: "Backend Developer at HCL Technologies",
+    name: "Naing Ye Thway",
+    role: "Backend Developer at Unique Solution",
     review: "Every day brought new challenges and learning moments. The culture encourages growth and creativity.",
     image: m4,
   },

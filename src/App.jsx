@@ -10,6 +10,7 @@ import Contact from './sections/Contact'
 import Footer from './sections/Footer'
 import CustomCursor from './components/CustomCursor'
 import IntroAnimation from './components/IntroAnimation'
+import ThitsarAungBot from './sections/ThitsarAungBot'
 
 const App = () => {
 
@@ -33,6 +34,7 @@ const App = () => {
           <Testimonials />
           <Contact />
           <Footer />
+          <ThitsarAungBot />
         </div>
       )}
     </>
