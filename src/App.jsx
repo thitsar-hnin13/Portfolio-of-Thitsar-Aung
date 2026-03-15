@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import Navbar from './components/Navbar'
 import Home from './sections/Home'
 import About from './sections/About'
@@ -15,11 +15,22 @@ import ThitsarAungBot from './sections/ThitsarAungBot'
 const App = () => {
 
   const [introDone, setIntroDone] = useState(false);
+  const audioRef = useRef(null);
+
+  // intro ပြီးရင် voice play
+  useEffect(() => {
+    if (introDone && audioRef.current) {
+      audioRef.current.play().catch(() => {});
+    }
+  }, [introDone]);
+
   return (
 
     <>
-      {!introDone && <IntroAnimation onFinished={() => setIntroDone(true)} />}
+      {/* Voice */}
+      <audio ref={audioRef} src="/voice.mp3" />
 
+      {!introDone && <IntroAnimation onFinished={() => setIntroDone(true)} />}
 
       {introDone && (
 
