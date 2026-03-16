@@ -6,6 +6,7 @@ const ThitsarAungChat = () => {
   const [selectedQuestion, setSelectedQuestion] = useState(null);
   const [language, setLanguage] = useState('my'); // 'my', 'en', 'ko'
   const messagesEndRef = useRef(null);
+  const audioRef = useRef(null);
 
   // Language translations
   const translations = {
@@ -529,22 +530,26 @@ const ThitsarAungChat = () => {
 
   return (
     <>
+    <audio
+  ref={audioRef}
+  src="/voice.mp3"
+  preload="auto"
+/>
       <style>{mediaStyles}</style>
 
       <button 
-        style={chatStyles.fab}
-        onClick={() => setIsOpen(!isOpen)}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.transform = 'scale(1.1)';
-          e.currentTarget.style.boxShadow = `0 6px 20px ${darkColors.borderRed}80`;
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.transform = 'scale(1)';
-          e.currentTarget.style.boxShadow = '0 4px 15px rgba(157, 77, 255, 0.4)';
-        }}
-      >
-        {isOpen ? '✕' : '💬'}
-      </button>
+  style={chatStyles.fab}
+  onClick={() => {
+    setIsOpen(!isOpen);
+
+    if (audioRef.current) {
+      audioRef.current.currentTime = 0;
+      audioRef.current.play();
+    }
+  }}
+>
+  {isOpen ? '✕' : '🤖'}
+</button>
 
       <div style={chatStyles.popup}>
         <div style={chatStyles.header}>
