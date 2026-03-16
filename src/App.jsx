@@ -17,10 +17,10 @@ const App = () => {
   const [introDone, setIntroDone] = useState(false);
   const audioRef = useRef(null);
 
-  // intro ပြီးရင် voice play
   useEffect(() => {
     if (introDone && audioRef.current) {
-      audioRef.current.play().catch(() => {});
+      audioRef.current.muted = false
+      audioRef.current.play().catch(() => {})
     }
   }, [introDone]);
 
@@ -28,7 +28,13 @@ const App = () => {
 
     <>
       {/* Voice */}
-      <audio ref={audioRef} src="/voice.mp3" />
+      <audio
+        ref={audioRef}
+        src="/voice.mp3"
+        autoPlay
+        muted
+        preload="auto"
+      />
 
       {!introDone && <IntroAnimation onFinished={() => setIntroDone(true)} />}
 
