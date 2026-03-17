@@ -12,8 +12,9 @@ import o3 from '../assets/o3.png'
 import o4 from '../assets/o4.png'
 import o5 from '../assets/o5.png'
 
+import o6 from '../assets/r.png'
+import o7 from '../assets/u.png'
 import { AnimatePresence, useMotionValueEvent, useScroll, motion } from 'framer-motion'
-
 
 const useIsMobile = (query = "(max-width: 639px)") => {
   const [isMobile, setIsMobile] = useState(
@@ -47,7 +48,7 @@ const Projects = () => {
       title: "  CHRISTMASMY  ",
       link: "https://christmasmy.vercel.app/",
       bg: " #1d1a11",
-      image: isMobile ? c2 : c1,
+      image: isMobile ? b2 : c1,
     },
     {
       title: "  SHEW13HSOLUTION COMPANY  ",
@@ -66,6 +67,12 @@ const Projects = () => {
       link: "https://developer-teams-frontend.vercel.app/",
       bg: " #1d1a11",
       image: isMobile ? o4 : o5,
+    },
+    {
+      title: "  EDU SYSTEM   ",
+      link: "https://school-system-two-delta.vercel.app/",
+      bg: " #1d1a11",
+      image: isMobile ? o6 : o7,
     },
   ], [isMobile]);
 
