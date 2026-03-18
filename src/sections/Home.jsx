@@ -10,16 +10,20 @@ import {
   FaInstagram,
   FaYoutube,
   FaTiktok,
-  FaGoogle,
   FaPhone,
   FaEnvelope,
   FaCopy,
   FaCheck,
+  FaBriefcase, // Better for portfolio
+  FaFolderOpen, // Alternative portfolio icon
+  FaUserTie, // Professional alternative
 } from "react-icons/fa6";
-import { SiGooglecalendar, SiGooglemeet, SiViber } from "react-icons/si";
+import { SiGooglecalendar, SiGooglemeet, SiViber, SiDevpost, SiDiscord, SiAboutdotme } from "react-icons/si";
+import { MdWork, MdPortrait, MdBusinessCenter } from "react-icons/md";
+import { RiFolderUserLine, RiUserSettingsLine } from "react-icons/ri";
 import home from "../assets/home.png";
 
-// Language translations
+// Language translations (English & Korean only)
 const translations = {
   en: {
     role1: "Professional Web Developer",
@@ -49,37 +53,9 @@ const translations = {
     viber: "Viber",
     meet: "Google Meet",
     calendar: "Google Calendar",
-    portfolio: "Portfolio"
-  },
-  my: {
-    role1: "ပရော်ဖက်ရှင်နယ် ဝဘ်ဒီဗလောပါ",
-    role2: "ပရော်ဖက်ရှင်နယ် React ဒီဗလောပါ",
-    role3: "ပရော်ဖက်ရှင်နယ် ရှေ့ဆုံးဒီဗလောပါ",
-    hello: "မင်္ဂလာပါ၊ ကျွန်တော်ကတော့",
-    name: "သစ္စာအောင်",
-    description: "ကျွန်တော်ဟာ ခေတ်မီပြီး တုံ့ပြန်မှုမြန်တဲ့ ဝဘ်ဆိုဒ်တွေကို တည်ဆောက်ဖို့ အာရုံစိုက်တဲ့ ဝါသနာပါတဲ့ ဝဘ်ဒီဗလောပါတစ်ယောက်ပါ။ React၊ Tailwind CSS နဲ့ သန့်ပြန့်ပြီး အလိုလိုသိနိုင်တဲ့ UI/UX ဒီဇိုင်းတွေကို ဖန်တီးရာမှာ အထူးပြုပါတယ်။",
-    viewWork: "ကျွန်တော့်အလုပ်များ",
-    resume: "ကိုယ်ရေးမှတ်တမ်း",
-    phoneNumber: "ဖုန်းနံပါတ်",
-    copy: "ကူးယူရန်",
-    copied: "ကူးယူပြီး",
-    call: "ခေါ်ဆိုရန်",
-    close: "ပိတ်ရန်",
-    // Social labels
-    github: "ဂစ်ဟပ်",
-    linkedin: "လင့်ဒ်အင်း",
-    email: "အီးမေးလ်",
-    phone: "ဖုန်း",
-    facebook: "ဖေ့စ်ဘွတ်ခ်",
-    instagram: "အင်စတာဂရမ်",
-    twitter: "X (တွစ်တာ)",
-    tiktok: "တစ်တော့ခ်",
-    youtube: "ယူကျု့",
-    telegram: "တယ်လီဂရမ်",
-    viber: "ဗိုင်ဘာ",
-    meet: "ဂူဂယ်မီး",
-    calendar: "ဂူဂယ်ကယ်လန်ဒါ",
-    portfolio: "ပို့တ်ဖိုလီယို"
+    portfolio: "Portfolio",
+    devpost: "Devpost",
+    discord: "Discord"
   },
   ko: {
     role1: "전문 웹 개발자",
@@ -109,11 +85,13 @@ const translations = {
     viber: "바이버",
     meet: "구글 미트",
     calendar: "구글 캘린더",
-    portfolio: "포트폴리오"
+    portfolio: "포트폴리오",
+    devpost: "데브포스트",
+    discord: "디스코드"
   }
 };
 
-// Updated socials with real links
+// Updated socials with real links including Devpost and Discord
 const socials = [
   // Professional & Work
   {
@@ -214,14 +192,95 @@ const socials = [
     hoverColor: "#5a95f5"
   },
 
-  // Portfolio
+  // New Links: Devpost & Discord
   {
-    Icon: FaGoogle,
+    Icon: SiDevpost,
+    labelKey: "devpost",
+    href: "https://devpost.com/thitsar-hnin13?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav",
+    color: "#003E54",
+    hoverColor: "#0A6B8C"
+  },
+  {
+    Icon: SiDiscord,
+    labelKey: "discord",
+    href: "https://discord.com/channels/1483857742539132943/1483857743671726142",
+    color: "#5865F2",
+    hoverColor: "#7289da"
+  },
+
+  // Portfolio - Using FaBriefcase instead of FaGoogle for better representation
+  {
+    Icon: FaBriefcase, // Changed from FaGoogle to FaBriefcase
     labelKey: "portfolio",
     href: "https://thitsarprotfolio.vercel.app/",
-    color: "#4285f4",
-    hoverColor: "#34a853"
+    color: "#8B5CF6", // Purple color for portfolio
+    hoverColor: "#A78BFA"
   },
+  
+  // You can also try these alternatives - just uncomment one and comment out the above:
+  
+  // Alternative 1: Folder Open Icon
+  // {
+  //   Icon: FaFolderOpen,
+  //   labelKey: "portfolio",
+  //   href: "https://thitsarprotfolio.vercel.app/",
+  //   color: "#F59E0B", // Amber color
+  //   hoverColor: "#FBBF24"
+  // },
+  
+  // Alternative 2: User Tie Icon (Professional)
+  // {
+  //   Icon: FaUserTie,
+  //   labelKey: "portfolio",
+  //   href: "https://thitsarprotfolio.vercel.app/",
+  //   color: "#10B981", // Emerald color
+  //   hoverColor: "#34D399"
+  // },
+  
+  // Alternative 3: Work Icon from react-icons/md
+  // {
+  //   Icon: MdWork,
+  //   labelKey: "portfolio",
+  //   href: "https://thitsarprotfolio.vercel.app/",
+  //   color: "#3B82F6", // Blue color
+  //   hoverColor: "#60A5FA"
+  // },
+  
+  // Alternative 4: Business Center Icon
+  // {
+  //   Icon: MdBusinessCenter,
+  //   labelKey: "portfolio",
+  //   href: "https://thitsarprotfolio.vercel.app/",
+  //   color: "#8B5CF6", // Purple
+  //   hoverColor: "#A78BFA"
+  // },
+  
+  // Alternative 5: About.me Icon (Very Professional)
+  // {
+  //   Icon: SiAboutdotme,
+  //   labelKey: "portfolio",
+  //   href: "https://thitsarprotfolio.vercel.app/",
+  //   color: "#333333", // Dark gray
+  //   hoverColor: "#4B5563"
+  // },
+  
+  // Alternative 6: Folder User Icon
+  // {
+  //   Icon: RiFolderUserLine,
+  //   labelKey: "portfolio",
+  //   href: "https://thitsarprotfolio.vercel.app/",
+  //   color: "#EC4899", // Pink
+  //   hoverColor: "#F472B6"
+  // },
+  
+  // Alternative 7: User Settings Icon
+  // {
+  //   Icon: RiUserSettingsLine,
+  //   labelKey: "portfolio",
+  //   href: "https://thitsarprotfolio.vercel.app/",
+  //   color: "#14B8A6", // Teal
+  //   hoverColor: "#2DD4BF"
+  // },
 ];
 
 // Enhanced glow variants with color support
@@ -407,11 +466,10 @@ const Home = () => {
     >
       <ParticlesBackground />
 
-      {/* Language Selector */}
+      {/* Language Selector - English & Korean only */}
       <div className="absolute top-5 right-5 z-50 flex gap-2">
         {[
-          { code: "en", label: "EN", flag: "🇬🇧" },
-          { code: "my", label: "မြန်မာ", flag: "🇲🇲" },
+          { code: "en", label: "English", flag: "🇬🇧" },
           { code: "ko", label: "한국어", flag: "🇰🇷" }
         ].map((lang) => (
           <motion.button
@@ -543,7 +601,7 @@ const Home = () => {
               ))}
             </div>
 
-            {/* Second row of social icons */}
+            {/* Second row of social icons - includes new Devpost, Discord, and Portfolio with briefcase icon */}
             <div className="mt-4 flex flex-wrap gap-5 text-2xl md:text-3xl justify-center lg:justify-start">
               {secondRowSocials.map(({ Icon, labelKey, href, color, hoverColor }) => (
                 <motion.a

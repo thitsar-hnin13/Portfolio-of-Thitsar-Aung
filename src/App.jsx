@@ -30,7 +30,7 @@ const App = () => {
       {/* Voice */}
       <audio
         ref={audioRef}
-        src="/voice.mp3"
+        src="/"
         autoPlay
         muted
         preload="auto"

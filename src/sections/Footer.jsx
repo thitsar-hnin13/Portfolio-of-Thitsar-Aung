@@ -11,14 +11,17 @@ import {
   FaInstagram,
   FaTiktok,
   FaYoutube,
-  FaGoogle,
+  FaBriefcase, // Replaced FaGoogle with FaBriefcase
   FaCopy,
   FaCheck
 } from "react-icons/fa6";
 import { 
   SiViber, 
   SiGooglemeet, 
-  SiGooglecalendar 
+  SiGooglecalendar,
+  SiDevpost,
+  SiDiscord,
+  SiAboutdotme
 } from "react-icons/si";
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -131,7 +134,7 @@ const Footer = ({ language = 'en' }) => {
   const [showPhonePopup, setShowPhonePopup] = useState(false);
   const [selectedPhone, setSelectedPhone] = useState("");
 
-  // Footer translations
+  // Footer translations (English & Korean only)
   const translations = {
     en: {
       phoneNumber: "Phone Number",
@@ -155,30 +158,9 @@ const Footer = ({ language = 'en' }) => {
       viber: "Viber",
       meet: "Google Meet",
       calendar: "Google Calendar",
-      portfolio: "Portfolio"
-    },
-    my: {
-      phoneNumber: "ဖုန်းနံပါတ်",
-      copy: "ကူးယူရန်",
-      copied: "ကူးယူပြီး",
-      call: "ခေါ်ဆိုရန်",
-      close: "ပိတ်ရန်",
-      quote: "အောင်မြင်ခြင်းဆိုတာ ပြင်ဆင်မှုနဲ့ အခွင့်အလမ်းတွေ့ဆုံတဲ့နေရာပါ",
-      rights: "မူပိုင်ခွင့်များ",
-      github: "ဂစ်ဟပ်",
-      linkedin: "လင့်ဒ်အင်း",
-      email: "အီးမေးလ်",
-      phone: "ဖုန်း",
-      facebook: "ဖေ့စ်ဘွတ်ခ်",
-      instagram: "အင်စတာဂရမ်",
-      twitter: "X (တွစ်တာ)",
-      tiktok: "တစ်တော့ခ်",
-      youtube: "ယူကျု့",
-      telegram: "တယ်လီဂရမ်",
-      viber: "ဗိုင်ဘာ",
-      meet: "ဂူဂယ်မီး",
-      calendar: "ဂူဂယ်ကယ်လန်ဒါ",
-      portfolio: "ပို့တ်ဖိုလီယို"
+      portfolio: "Portfolio",
+      devpost: "Devpost",
+      discord: "Discord"
     },
     ko: {
       phoneNumber: "전화번호",
@@ -201,7 +183,9 @@ const Footer = ({ language = 'en' }) => {
       viber: "바이버",
       meet: "구글 미트",
       calendar: "구글 캘린더",
-      portfolio: "포트폴리오"
+      portfolio: "포트폴리오",
+      devpost: "데브포스트",
+      discord: "디스코드"
     }
   };
 
@@ -301,13 +285,30 @@ const Footer = ({ language = 'en' }) => {
       color: "#4285f4",
       hoverColor: "#5a95f5"
     },
+    // New Devpost Link
     {
-      Icon: FaGoogle,
+      Icon: SiDevpost,
+      label: "devpost",
+      href: "https://devpost.com/thitsar-hnin13?ref_content=user-portfolio&ref_feature=portfolio&ref_medium=global-nav",
+      color: "#003E54",
+      hoverColor: "#0A6B8C"
+    },
+    // New Discord Link
+    {
+      Icon: SiDiscord,
+      label: "discord",
+      href: "https://discord.com/channels/1483857742539132943/1483857743671726142",
+      color: "#5865F2",
+      hoverColor: "#7289da"
+    },
+    // Portfolio - Replaced FaGoogle with FaBriefcase
+    {
+      Icon: FaBriefcase,
       label: "portfolio",
       href: "https://thitsarprotfolio.vercel.app/",
-      color: "#4285f4",
-      hoverColor: "#34a853"
-    },
+      color: "#8B5CF6", // Professional purple color
+      hoverColor: "#A78BFA"
+    }
   ];
 
   const glowVariants = {
