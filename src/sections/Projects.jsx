@@ -14,6 +14,10 @@ import o5 from '../assets/o5.png'
 
 import o6 from '../assets/r.png'
 import o7 from '../assets/u.png'
+import o22 from '../assets/gf.png'
+import o77 from '../assets/gf.png'
+import o66 from '../assets/gff.png'
+import o777 from '../assets/gff.png'
 import { AnimatePresence, useMotionValueEvent, useScroll, motion } from 'framer-motion'
 
 const useIsMobile = (query = "(max-width: 639px)") => {
@@ -73,6 +77,18 @@ const Projects = () => {
       link: "https://school-system-two-delta.vercel.app/",
       bg: " #1d1a11",
       image: isMobile ? o6 : o7,
+    },
+    {
+      title: "  KKP   ",
+      link: "https://awara-co-ltd.vercel.app/",
+      bg: " #1d1a11",
+      image: isMobile ? o22 : o77,
+    },
+    {
+      title: "  Files Website   ",
+      link: "https://tsafile.vercel.app/",
+      bg: " #1d1a11",
+      image: isMobile ? o66 : o777,
     },
   ], [isMobile]);
 

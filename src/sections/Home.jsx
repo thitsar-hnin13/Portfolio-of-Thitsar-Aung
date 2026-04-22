@@ -514,23 +514,23 @@ const Home = () => {
       {/* Language Selector - English & Korean only */}
       <div className="absolute top-5 right-5 z-50 flex gap-2">
         {/* ✅ Vertical Brightness Slider */}
-          <input
-  type="range"
-  min="0.6"
-  max="1.4"
-  step="0.01"
-  value={brightness}
-  onChange={(e) => setBrightness(parseFloat(e.target.value))}
-  className="w-32 h-1.5 bg-gradient-to-r from-orange-300 to-orange-600 rounded-lg appearance-none cursor-pointer"
-  style={{
-    background: `linear-gradient(to right, #fb923c ${((brightness - 0.6) / 0.8) * 100}%, #4b5563 ${((brightness - 0.6) / 0.8) * 100}%)`,
-    transform: 'rotate(-60deg)',
-    WebkitAppearance: 'none',
-  }}
-/>
+        <input
+          type="range"
+          min="0.6"
+          max="1.4"
+          step="0.01"
+          value={brightness}
+          onChange={(e) => setBrightness(parseFloat(e.target.value))}
+          className="w-32 h-1.5 bg-gradient-to-r from-orange-300 to-orange-600 rounded-lg appearance-none cursor-pointer"
+          style={{
+            background: `linear-gradient(to right, #fb923c ${((brightness - 0.6) / 0.8) * 100}%, #4b5563 ${((brightness - 0.6) / 0.8) * 100}%)`,
+            transform: "rotate(-60deg)",
+            WebkitAppearance: "none",
+          }}
+        />
 
-{/* Add this CSS to your global CSS or in a style tag for better styling */}
-<style>{`
+        {/* Add this CSS to your global CSS or in a style tag for better styling */}
+        <style>{`
   input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 16px;
@@ -584,10 +584,8 @@ const Home = () => {
             <span>{lang.flag}</span>
             <span>{lang.label}</span>
           </motion.button>
-        ))}<div className="absolute top-5 right-5 z-50 flex flex-col items-end gap-2">
-          
-        </div>
-        
+        ))}
+        <div className="absolute top-5 right-5 z-50 flex flex-col items-end gap-2"></div>
       </div>
 
       <div className="absolute inset-0">
@@ -599,8 +597,6 @@ const Home = () => {
           className="absolute bottom-0 right-0 w-[50vw] sm:w-[z-300w] md:w-[20vw] h-[50vw] sm:h-[50vw] md:h-[30vw] max-w-[400px] max-h-[400px] rounded-full bg-gradient-to-r from-[#302d63] via-[#bf006f] to-[#75000a] opacity-30 
         sm:opacity-20 md:opacity-10 blur-[100px] sm:blur-[130px] md:blur-[150px] animate-pulse delay-500"
         ></div>
-        
-        
       </div>
 
       <div className="relative z-10 h-full w-full max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-2">
