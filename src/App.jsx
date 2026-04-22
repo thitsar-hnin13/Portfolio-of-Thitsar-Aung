@@ -24,6 +24,7 @@ const App = () => {
     }
   }, [introDone]);
 
+
   return (
 
     <>
@@ -35,6 +36,8 @@ const App = () => {
         muted
         preload="auto"
       />
+
+      
 
       {!introDone && <IntroAnimation onFinished={() => setIntroDone(true)} />}
 
