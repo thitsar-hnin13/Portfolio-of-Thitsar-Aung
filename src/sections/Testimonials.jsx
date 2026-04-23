@@ -1,42 +1,44 @@
 import React from 'react'
-import m1 from '../assets/l3.jpg'
-import m2 from '../assets/l2.jpg'
-import m3 from '../assets/l.jpg'
-import m4 from '../assets/l1.jpg'
+import m1 from '../assets/m1.jpg'
+import m2 from '../assets/m2.jpg'
+import m3 from '../assets/m3.jpg'
+import m4 from '../assets/m4.jpg'
 import {motion} from 'framer-motion'
 
 const testimonials = [
-  {
-    name: "Moe Kaung",
-    role: "Full Stack Developer at Unique Solution",
-    review: "Working with this team was a fantastic experience. The project management and technical guidance helped me grow professionally.",
-    image: m1,
+  {name:"Moe Ka",
+   role:"software engineer at hcl techonlogies ",
+   review:"software engineer at hcl techonlogies  software engineer at hcl techonlogies  software engineer at hcl techonlogies software engineer at hcl techonlogies ",
+   image:m1,
+
   },
-  {
-    name: "Min Wai Tun",
-    role: "Frontend Developer at Unique Solution",
-    review: "I truly appreciate the supportive work environment. Collaboration here leads to innovative solutions every day.",
-    image: m2,
+   {name:"Yash saha",
+   role:"software engineer at hcl techonlogies ",
+   review:"software engineer at hcl techonlogies  software engineer at hcl techonlogies  software engineer at hcl techonlogies software engineer at hcl techonlogies ",
+   image:m2,
+
   },
-  {
-    name: "Nay Lin Soe",
-    role: "Backend Developer at Unique Solution",
-    review: "The mentorship and learning opportunities were amazing. I could tackle complex projects confidently.",
-    image: m3,
+   {name:"Yash saha2",
+   role:"software engineer at hcl techonlogies ",
+   review:"software engineer at hcl techonlogies  software engineer at hcl techonlogies  software engineer at hcl techonlogies software engineer at hcl techonlogies ",
+   image:m3,
+
   },
-  {
-    name: "Naing Ye Thway",
-    role: "Backend Developer at Unique Solution",
-    review: "Every day brought new challenges and learning moments. The culture encourages growth and creativity.",
-    image: m4,
+   {name:"Yash saha1",
+   role:"software engineer at hcl techonlogies ",
+   review:"software engineer at hcl techonlogies  software engineer at hcl techonlogies  software engineer at hcl techonlogies software engineer at hcl techonlogies ",
+   image:m4,
+
   },
 ]
 
 
 
+
+
 const Testimonials = () => {
   return (
-    <div id='testimonials' className="relative min-h-screen bg-black text-red-500 flex flex-col items-center justify-between px-6 py-20 lg:px-30cd">
+    <div id='testimonials' className="relative min-h-screen bg-black text-white flex flex-col items-center justify-between px-6 py-20 lg:px-30cd">
      <motion.h2 className='text-4xl font-bold mb-16'
      initial={{opacity:0,y: -50}}
      animate={{opacity:1,y:0}}
@@ -56,13 +58,13 @@ const Testimonials = () => {
         className='bg-white/10 backdrop-blur-lg border border-white/20 rounded-2xl p-6 flex flex-col items-center text-center transform transition duration-500 hover:scale-105 hover:-rotate-1 '
         >
           <img src={t.image} alt={t.name} className='w-20 h-20 rounded-full border-2 border-white/40 mb-4 object-cover' loading='lazy'/>
-          <p className="text-blue-200 italic mb-4">
+          <p className="text-gray-200 italic mb-4">
             {t.review}
           </p>
           <h3 className='text-lg font-semibold'>
             {t.name}
           </h3>
-          <p className="text-sm text-blue-400">
+          <p className="text-sm text-gray-400">
             {t.role}
           </p>
 

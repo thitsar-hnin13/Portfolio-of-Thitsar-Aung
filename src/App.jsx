@@ -19,6 +19,7 @@ const App = () => {
 
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
 
+  // 🎵 Intro audio
   useEffect(() => {
     if (introDone && audioRef.current) {
       audioRef.current.muted = false;
@@ -26,6 +27,7 @@ const App = () => {
     }
   }, [introDone]);
 
+  // 🌙 Theme control
   useEffect(() => {
     if (theme === "dark") {
       document.body.classList.add("dark");
@@ -43,6 +45,7 @@ const App = () => {
     <>
       <DotBackground />
 
+      {/* Voice */}
       <audio ref={audioRef} src="/" autoPlay muted preload="auto" />
 
       {!introDone && <IntroAnimation onFinished={() => setIntroDone(true)} />}

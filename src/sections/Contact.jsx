@@ -68,7 +68,7 @@ const Contact = () => {
   }
 
   return (
-    <div id='contact' className="w-full min-h-screen relative bg-black overflow-hidden text-red-500 py-20 px-6 md:px-10 flex flex-col md:flex-row items-center gap-10 ">
+    <div id='contact' className="w-full min-h-screen relative bg-black overflow-hidden text-white py-20 px-6 md:px-10 flex flex-col md:flex-row items-center gap-10 ">
       <ParticlesBackground />
       <div className="relative z-10 w-full flex flex-col md:flex-row items-center gap-10 ">
         <motion.div className="w-full md:w-1/2 flex justify-center "
@@ -96,14 +96,14 @@ const Contact = () => {
 
               <input type="text" name='name' placeholder='Your Name' value={formData.name} onChange={handleChange}
                 className={`p-3 rounded-md bg-white/10 border 
-                ${errors.name ? "border-red-500 " : "border-gray-500"} text-blue-200 focus:outline-none focus:border-blue-500 `} />
+                ${errors.name ? "border-red-500 " : "border-gray-500"} text-white focus:outline-none focus:border-blue-500 `} />
               {errors.name && <p className='text-red-500 text-xl '>{errors.name}</p>}
             </div>
             <div className="flex flex-col">
               <label className='mb-1' >Your Email <span className='text-red-500'>*</span></label>
               <input type="email" name='email' placeholder='Your Name' value={formData.email} onChange={handleChange}
                 className={`p-3 rounded-md bg-white/10 border 
-                ${errors.email ? "border-red-500 " : "border-gray-500"} text-blue-200 focus:outline-none focus:border-blue-500 `} />
+                ${errors.email ? "border-red-500 " : "border-gray-500"} text-white focus:outline-none focus:border-blue-500 `} />
               {errors.email && <p className='text-red-500 text-xl '>{errors.email}</p>}
             </div>
             <div className="flex flex-col">
@@ -112,12 +112,6 @@ const Contact = () => {
                 <option value="" disabled>
                   Something in mind?
 
-                </option>
-                <option value="Others" className='text-black'>
-                  Local Brand
-                </option>
-                <option value="Others" className='text-black'>
-                  Product
                 </option>
                 <option value="Web Development" className='text-black'>
                   Web Development
@@ -143,7 +137,7 @@ const Contact = () => {
                   onChange={handleChange}
                   value={formData.budget}
                   className={`p-3 rounded-md bg-white/10 border 
-                ${errors.budget ? "border-red-500 " : "border-gray-500"} text-blue-300 focus:outline-none focus:border-blue-500 `}
+                ${errors.budget ? "border-red-500 " : "border-gray-500"} text-white focus:outline-none focus:border-blue-500 `}
 
                 />
                 {errors.budget && <p className='text-red-500 text-xl '>{errors.budget}</p>}
@@ -157,7 +151,7 @@ const Contact = () => {
                 value={formData.idea}
                 onChange={handleChange}
                 className={`p-3 rounded-md bg-white/10 border 
-                ${errors.idea ? "border-red-500 " : "border-gray-500"} text-blue-400 focus:outline-none focus:border-blue-500 `}
+                ${errors.idea ? "border-red-500 " : "border-gray-500"} text-white focus:outline-none focus:border-blue-500 `}
               >
 
               </textarea>
@@ -168,7 +162,7 @@ const Contact = () => {
                 {status === "sending" ? "sending..." : status === "success" ? " Message sent successfully ✅" : "Something went ❌"}
               </p>
             )}
-            <motion.button className='bg-blue-500 hover:bg-blue-700 disabled:opacity-60 text-white py-3 rounded-md font-semibold transition'
+            <motion.button className='bg-blue-600 hover:bg-blue-700 disabled:opacity-60 text-white py-3 rounded-md font-semibold transition'
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               disabled={status === "sending"}
