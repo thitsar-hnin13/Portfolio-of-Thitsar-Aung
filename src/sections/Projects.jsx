@@ -1,12 +1,24 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react'
-import a1 from '../assets/a1.jpg'
+import a1 from '../assets/s.png'
 import b1 from '../assets/b1.jpg'
-import c1 from '../assets/c1.jpg'
-import a2 from '../assets/a2.png'
-import b2 from '../assets/b2.png'
+import c1 from '../assets/uii.png'
+import a2 from '../assets/st.png'
+import b2 from '../assets/ui.png'
 import c2 from '../assets/c2.png'
-import { AnimatePresence, useMotionValueEvent, useScroll, motion } from 'framer-motion'
+import o from '../assets/o.png'
+import o1 from '../assets/o1.png'
+import o2 from '../assets/o2.png'
+import o3 from '../assets/o3.png'
+import o4 from '../assets/o4.png'
+import o5 from '../assets/o5.png'
 
+import o6 from '../assets/r.png'
+import o7 from '../assets/u.png'
+import o22 from '../assets/gf.png'
+import o77 from '../assets/gf.png'
+import o66 from '../assets/gff.png'
+import o777 from '../assets/gff.png'
+import { AnimatePresence, useMotionValueEvent, useScroll, motion } from 'framer-motion'
 
 const useIsMobile = (query = "(max-width: 639px)") => {
   const [isMobile, setIsMobile] = useState(
@@ -30,22 +42,53 @@ const Projects = () => {
 
   const projects = useMemo(() => [
     {
-      title: "flower shop",
-      link: "https://coffee-shop-example.com",
-      bg: "#f20575",
+      title: "SHWEDAGON PAGODA",
+      link: "https://thitsaraung-sniph.vercel.app/",
+      bg: "#001219",
       image: isMobile ? a2 : a1,
     },
+
     {
-      title: "hotel booking",
-      link: "https://coffee-shop-example.com",
-      bg: " #f3c300",
-      image: isMobile ? b2 : b1,
+      title: "  CHRISTMASMY  ",
+      link: "https://christmasmy.vercel.app/",
+      bg: " #1d1a11",
+      image: isMobile ? b2 : c1,
     },
     {
-      title: "  coffee shop  ",
-      link: "https://coffee-shop-example.com",
+      title: "  SHEW13HSOLUTION COMPANY  ",
+      link: "https://shew13hvalue.vercel.app/",
       bg: " #1d1a11",
-      image: isMobile ? c2 : c1,
+      image: isMobile ? o : o1,
+    },
+    {
+      title: "  SOLAR SYSTEM EXPLORATION  ",
+      link: "https://solar-system-exploration-three.vercel.app/",
+      bg: " #1d1a11",
+      image: isMobile ? o2 : o3,
+    },
+    {
+      title: "  UNIQUE SOLUTION COMPANY  ",
+      link: "https://developer-teams-frontend.vercel.app/",
+      bg: " #1d1a11",
+      image: isMobile ? o4 : o5,
+    },
+    {
+      title: "  EDU SYSTEM   ",
+      link: "https://school-system-two-delta.vercel.app/",
+      bg: " #1d1a11",
+      image: isMobile ? o6 : o7,
+    },
+    {
+      title: "  KKP   ",
+      link: "https://awara-co-ltd.vercel.app/",
+      bg: " #1d1a11",
+      image: isMobile ? o22 : o77,
+    },
+    {
+      title: "  Files Website   ",
+      link: "https://tsafile.vercel.app/",
+      bg: " #1d1a11",
+      image: isMobile ? o66 : o777,
     },
   ], [isMobile]);
 
@@ -65,15 +108,11 @@ const Projects = () => {
     setActiveIndex(idx === -1 ? threshold.length - 1 : idx)
   });
   const activeProject = projects[activeIndex];
-
-
-
-
   return (
     <div
       ref={sceneRef}
       id='projects'
-      className="relative text-white  " style={{
+      className="relative text-red-500  " style={{
         height: `${100 * projects.length}vh`,
         backgroundColor: activeProject.bg,
         transition: "background-color 400ms ease"
@@ -83,7 +122,7 @@ const Projects = () => {
 
         <h2 className={`text-3xl font-semibold z-10 text-center ${isMobile ? "mt-4 " : "mt-8"
           }`}>
-          my work
+          MY PROJECT
         </h2>
         <div className={`relative w-full flex-1 flex items-center justify-center ${isMobile ? "-mt-4 " : ""}`}>
           {projects.map((project, idx) => (
@@ -99,7 +138,7 @@ const Projects = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: 30 }}
                     transition={{ duration: 0.5, ease: "easeOut" }}
-                    className={`block text-center text-[clamp(2rem,6vw ,5rem)]  text-white/95  sm:absolute sm:-top-20 sm:left-[35%] lg:left-[5%] sm:mb-0 italic font-semibold  ${isMobile ? "-mt-24 " : ""} `}
+                    className={`block text-center text-[clamp(2rem,6vw ,5rem)]  text-yellow-500/95  sm:absolute sm:-top-20 sm:left-[35%] lg:left-[5%] sm:mb-0 italic font-semibold  ${isMobile ? "-mt-24 " : ""} `}
                     style={{
                       zIndex: 5,
                       textAlign: isMobile ? "center" : "left",
@@ -145,7 +184,7 @@ const Projects = () => {
           <a href={activeProject?.link}
           target='_blank'
           rel='noopener noreferrer '
-          className='inline-block px-6 py-3 font-semibold rounded-lg bg-white text-black hover:bg-gray-200 transition-all '
+          className='inline-block px-6 py-3 font-semibold rounded-lg bg-blue-300 text-red-500 hover:bg-blue-600 transition-all '
           aria-label={`View ${activeProject?.title}`}
           >
             
